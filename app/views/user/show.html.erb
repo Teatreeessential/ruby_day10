@@ -1,0 +1,25 @@
+<%if session[:current_user].nil?%>
+    <%=link_to '로그인','/'%>
+<%else%>
+    <% user = User.find(session[:current_user]) %>
+    <p>현재 로그인 된 유저: <%=user.user_id%></p>
+    <%= link_to '로그아웃', '/logout'%>
+<%end%>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">유저아이디</th>
+      <th scope="col">유저아이피</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+        <tr>
+          <td><%=user.user_id%></td>
+          <td><%=user.ip_address%></td>
+          <td><a class="btn btn-primary" href="/user/<%=user.id%>">유저수정</a></td>
+         </tr>
+    <%end%>
+  </tbody>
+</table> 
