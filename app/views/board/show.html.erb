@@ -1,7 +1,11 @@
 <h2><%=@post.title%></h2>
 <hr>
 <p><%=@post.contents%></p>
-<%= link_to "목록","/" %>
+<p>작성자:<%=@post.user.user_id%></p>
+<%= link_to "목록","/boards" %>
 <%= link_to "수정","/board/#{@post.id}/edit" %>
-<%= link_to "삭제","/board/#{@post.id}", method:'delete' %>
-
+<%= link_to "삭제","/board/#{@post.id}", method:'delete' %><br/>
+<p><%=@post.user.user_id%>님이 작성한 게시글</p>
+<% @list.each do |list| %>
+<a href="/board/<%=list.id%>"><%=list.title%></a><br/>
+<% end %>

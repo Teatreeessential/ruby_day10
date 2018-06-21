@@ -39,13 +39,13 @@ class UserController < ApplicationController
         pw = params[:password]
         user = User.find_by_user_id(id)
         if !user.nil? and user.password.eql?(pw)
-        #해당 user_id로 가입한 유저가 있고, 패스워드도 일치 하는 경우
-        session[:current_user] = user.id
-        flash[:success] ="로그인에 성공했습니다."
-        redirect_to '/users'
+            #해당 user_id로 가입한 유저가 있고, 패스워드도 일치 하는 경우
+            session[:current_user] = user.id
+            flash[:success] ="로그인에 성공했습니다."
+            redirect_to '/users'
         else
-        flash[:error] ="가입된 유저가 아니거나, 비밀번호가 틀립니다."
-        redirect_to '/'
+            flash[:error] ="가입된 유저가 아니거나, 비밀번호가 틀립니다."
+            redirect_to '/'
         end
     end
   

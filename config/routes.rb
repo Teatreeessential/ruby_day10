@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     put '/user/:id' =>'user#update'
     patch '/user/:id' =>'user#update'
     post '/login' => 'user#login'
+    get '/login' => 'user#login'
     
     
     post '/sign_in' => 'user#login'

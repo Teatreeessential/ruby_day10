@@ -1,3 +1,12 @@
+<%if session[:current_user].nil?%>
+    <%=link_to '로그인','/'%>
+<%else%>
+    <% user = User.find(session[:current_user]) %>
+    <p>현재 로그인 된 유저: <%=user.user_id%></p>
+    <%= link_to '로그아웃', '/logout'%>
+<%end%>
+
+
 <h1>Board#index</h1>
 <p>Find me in app/views/board/index.html.erb</p>
 <div>
